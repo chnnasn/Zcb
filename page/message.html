@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>讨论专区</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        /* 论坛样式 */
+        .forum {
+            margin-top: 20px;
+        }
+
+        .post-form {
+            margin-bottom: 20px;
+        }
+
+        .post-list {
+            margin-top: 20px;
+        }
+
+        .post-item {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .comment-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .comment-item {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-wrapper">
+        <header id="header-wrapper">
+            <div id="header" class="container">
+                <h1 id="logo"><a href="../index.html">专插本备考指南</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="preparation.html">备考方法</a></li>
+                        <li><li>
+                        <li><li>
+                        <li><li>
+                        <li><li>
+                        <li><li>
+                        <li><a href="consult.html">心理咨询</a></li>
+                        <li><a href="message.html">讨论专区</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container" id="main">
+            <article id="content">
+                <header>
+                    <h2>讨论专区</h2>
+                </header>
+
+                <div class="forum">
+                    <form class="post-form">
+                        <label for="title">标题:</label>
+                        <input type="text" id="title" name="title" required>
+                        <label for="post">内容:</label>
+                        <textarea id="post" name="post" required></textarea>
+                        <button type="submit">发布帖子</button>
+                    </form>
+
+                    <div class="post-list">
+                        <div class="post-item">
+                            <h3>备考经验分享</h3>
+                            <p>这里是备考经验的详细描述...</p>
+                            <div class="comment-list">
+                                <div class="comment-item">
+                                    <p><strong>张三:</strong> 非常有用的经验，谢谢分享！</p>
+                                </div>
+                                <div class="comment-item">
+                                    <p><strong>李四:</strong> 我试了这个方法，效果很好。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-item">
+                            <h3>最新政策讨论</h3>
+                            <p>关于最新考试政策的讨论...</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <footer id="footer" class="container">
+            <div class="row">
+                <div class="col-12">
+                    <section>
+                        <h2>联系方式</h2>
+                        <p>如有任何问题或建议，请通过以下方式联系我们。</p>
+                    </section>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

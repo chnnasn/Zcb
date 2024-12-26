@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        /* 留言板样式 */
+        .message-board {
+            margin-top: 20px;
+        }
+
+        .message-form {
+            margin-bottom: 20px;
+        }
+
+        /* .message-list {
+            margin-top: 20px;
+        } */
+
+        .message-item {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-wrapper">
+        <header id="header-wrapper">
+            <div id="header" class="container">
+                <h1 id="logo"><a href="../index.html">专插本备考指南</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="preparation.html">备考方法</a></li>
+                        <li><li>
+                        <li><li>
+                        <li><li>
+                        <li><li>
+                        <li><li>
+                        <li><a href="consult.html">心理咨询</a></li>
+                        <li><a href="message.html">讨论专区</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container" id="main">
+            <article id="content">
+                <header>
+                    <h2>留言板</h2>
+                </header>
+
+                <div class="message-board">
+                    <form class="message-form">
+                        <label for="name">姓名:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="message">留言:</label>
+                        <textarea id="message" name="message" required></textarea>
+                        <button type="submit">提交留言</button>
+                    </form>
+
+                    <!-- <div class="message-list">
+                        <div class="message-item">
+                            <p><strong>张三:</strong> 这个备考指南非常有用，谢谢！</p>
+                        </div>
+                        <div class="message-item">
+                            <p><strong>李四:</strong> 我觉得可以增加一些实战经验分享。</p>
+                        </div>
+                    </div> -->
+                </div>
+            </article>
+        </div>
+
+        <footer id="footer" class="container">
+            <div class="row">
+                <div class="col-12">
+                    <section>
+                        <h2>联系方式</h2>
+                        <p>如有任何问题或建议，请通过以下方式联系我们。</p>
+                    </section>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
