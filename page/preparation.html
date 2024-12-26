@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>备考方法</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        /* 导航链接卡片容器样式 */
+   .nav-link-cards-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        /* 单个导航链接卡片样式 */
+   .nav-link-card {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            text-align: center;
+            padding: 15px 0;
+            margin-bottom: 15px;
+        }
+
+   .nav-link-item {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block; /* 添加此属性以确保整个卡片区域都是可点击的 */
+            padding: 10px 0; /* 添加内边距使点击区域更大 */
+        }
+
+   .nav-link-item:hover {
+            color: #007bff;
+        }
+
+        /* 初始隐藏内容区域，并设置淡入淡出动画相关属性 */
+   .content-hidden {
+            display: none;
+            opacity: 0; /* 初始透明度设为0，用于动画效果 */
+            transition: opacity 0.5s ease-in-out; /* 添加淡入淡出动画过渡效果 */
+            transform: translateY(20px); /* 初始向下偏移一定距离，增加动画效果 */
+        }
+
+        /* 当添加active类时显示内容并执行淡入动画 */
+   .content-hidden.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0); /* 回到正常位置 */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* 同时过渡透明度和位置变化 */
+        }
+
+        /* 美化备考方法标题 */
+        article header {
+            animation: fadeInUp 0.5s ease-in-out; /* 添加淡入并向上移动的动画效果 */
+            background-color: #f0f0f0;
+            border-left: 5px solid #007bff;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        article header h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 定义淡入并向上移动的动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* 初始向上偏移一定距离 */
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0); /* 最终回到正常位置 */
+            }
+        }
+
+        /* 美化内容区域标题 */
+        article section h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 15px;
+        }
+
+        /* 内容列表样式 */
+        article ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        article p {
+            margin: 10px 0;
+        }
+        #plan-section table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #plan-section table th,
+        #plan-section table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <header id="header-wrapper">
+            <div id="header" class="container">
+                <h1 id="logo"><a href="../index.html">专插本备考指南</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="preparation.html">备考方法</a></li>
+                        <li><li>
+                        <li><li>
+                        <li><li>
+                        <li><li>
+                        <li><li>
+                        <li><a href="">心理咨询</a></li>
+                        <li><a href="">讨论专区</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container" id="main">
+            <article id="content">
+                <header>
+                    <h2>备考方法</h2>
+                </header>
+
+                <div class="nav-link-cards-container">
+                    <div class="nav-link-card">
+                        <h3>增强内驱力的方法</h3>
+                        <a href="#" id="link-motivation" class="nav-link-item">查看方法</a>
+                    </div>
+                    <div class="nav-link-card">
+                        <h3>调整心态的办法</h3>
+                        <a href="#" id="link-mindset" class="nav-link-item">查看办法</a>
+                    </div>
+                    <div class="nav-link-card">
+                        <h3>学习计划</h3>
+                        <a href="#" id="link-plan" class="nav-link-item">查看计划</a>
+                    </div>
+                </div>
+
+                <section class="content-hidden">
+                    <h3>增强内驱力的方法</h3>
+                    <ul>
+                        <li>明确个人目标与愿景：设定具体目标，确立清晰、具体、可衡量的短期和长期目标，且与个人兴趣、价值观及长远发展相契合；同时激发愿景，想象并描绘实现目标后的美好场景。</li>
+                        <li>培养兴趣和好奇心：鼓励自己尝试不同活动和兴趣，从中发现热爱之事；保持对世界的好奇，主动提问并寻求答案。</li>
+                        <li>增强自主感与掌控力：在日常生活和学习中多做自我决策，勇于承担选择和挑战带来的责任。</li>
+                        <li>树立信心与自我效能感：关注自身进步与成就，给予正面反馈；面对困难保持积极心态，相信自己能克服并成功。</li>
+                        <li>建立积极的自我形象：定期自我反思，评估表现并改进；赞美自己的努力而非仅关注结果。</li>
+                        <li>寻求支持与建立联结：需要时向他人寻求帮助；与志同道合者建立联系，分享经验与资源。</li>
+                        <li>持续学习与成长：保持对世界的好奇心，不断学习新知识、新技能；设定成长目标并努力实现。</li>
+                    </ul>
+                </section>
+
+                <section class="content-hidden">
+                    <h3>调整心态的办法</h3>
+                    <ul>
+                        <li>改变思维模式：
+                            <ul>
+                                <li>积极自我对话：每天对自己说一些积极的话语，比如“我可以的”“今天会是美好的一天”“我有能力解决问题”等。当遇到困难时，用正面的语言鼓励自己，而不是陷入自我否定。</li>
+                                <li>关注积极面：学会从生活中的小事中寻找积极的方面。比如，虽然今天下雨了，但可以享受清新的空气；虽然工作很忙碌，但也意味着自己有价值。把注意力从问题和困难转移到积极的成果和经验上。</li>
+                                <li>转换视角：当面临挑战时，尝试从不同的角度去看待问题。比如，把一次失败看作是学习的机会，而不是打击。从挫折中寻找成长的空间，培养“每一次经历都是一种收获”的思维方式。</li>
+                            </ul>
+                        </li>
+                        <li>培养记录的小习惯：
+                            <ul>
+                                <li>写记录生活美好的小日记：每天花几分钟写下当天让自己快乐的事情，可以是一件小事，通过记录美好的瞬间，让自己更加关注生活中的美好。</li>
+                                <li>回忆美好时光：定期回忆过去的美好经历，如旅行、聚会、成功的时刻等。这些回忆可以唤起积极的情绪，让自己更加珍惜现在的生活。</li>
+                            </ul>
+                        </li>
+                        <li>与积极的人交往：
+                            <ul>
+                                <li>选择乐观的朋友：身边的人对我们的情绪有很大的影响。尽量与乐观、积极向上的人交朋友，他们的正能量会感染你，让你也变得更加乐观。</li>
+                                <li>加入积极的社群：参加一些积极向上的社群活动，如志愿者组织、兴趣小组等。在这些群体中，你可以结识志同道合的人，共同分享快乐和成长。</li>
+                                <li>远离消极的人：如果身边有总是抱怨、消极悲观的人，尽量减少与他们的接触。他们的负面情绪可能会影响你的心态，让你也变得消极。</li>
+                            </ul>
+                        </li>
+                        <li>设定可行的目标：
+                            <ul>
+                                <li>明确目标：确定每日、每周、每月目标，确保这些目标是具体、可行的。例如，每天背诵一定数量的单词，每周完成一套模拟试卷等。</li>
+                                <li>关注过程：在追求目标的过程中，不要只关注结果，也要享受过程中的乐趣。比如，在学习过程中，每掌握一个新的知识点都可以给自己一些小奖励。</li>
+                                <li>调整期望：合理调整自己的期望，不要对自己要求过高。要认识到自己的能力和局限性，以平和的心态面对挑战。如果目标过高难以实现，容易产生挫败感，反而影响心态。</li>
+                            </ul>
+                        </li>
+                        <li>保持健康的生活方式：
+                            <ul>
+                                <li>适度运动：运动可以释放内啡肽等神经递质，改善情绪。选择一种自己喜欢的运动方式，如跑步、瑜伽、游泳等，定期进行锻炼。每周至少进行三次运动，每次运动 30 分钟以上。</li>
+                                <li>充足睡眠：保证充足的睡眠对情绪的稳定至关重要。每天尽量保持 7 - 8 小时的睡眠时间，建立规律的作息时间表，有助于提高睡眠质量。</li>
+                                <li>健康饮食：均衡饮食，多吃富含营养的食物，如水果、蔬菜、全谷物、瘦肉、鱼类、坚果等。避免过度摄入咖啡因、糖分、油腻食物等，这些食物可能会影响情绪和身体健康。</li>
+                                <li>放松身心：学会放松的技巧，如深呼吸、冥想、渐进性肌肉松弛等。在忙碌的学习生活中，每天给自己留出一些时间来放松身心，缓解压力。可以选择在安静的环境中坐下来，闭上眼睛，专注于呼吸，每次放松练习 10 - 15 分钟。也可以多出去亲近大自然，如散步、爬山等，感受大自然的美好，减轻心理负担。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="content-hidden" id="plan-section">
+                    <h3>学习计划</h3>
+                    <h4>日计划</h4>
+                    <table>
+                        <tr>
+                            <th>时间</th>
+                            <th>学习安排</th>
+                        </tr>
+                        <tr>
+                            <td>7:00 - 8:00</td>
+                            <td>起床，吃早餐</td>
+                        </tr>
+                        <tr>
+                            <td>8:00 - 8:50</td>
+                            <td>政治科目视频学习 & 题目练习</td>
+                        </tr>
+                        <tr>
+                            <td>8:50 - 9:00</td>
+                            <td>短暂休息</td>
+                        </tr>
+                        <tr>
+                            <td>9:00 - 10:20</td>
+                            <td>毛概视频学习 & 题目练习</td>
+                        </tr>
+                        <tr>
+                            <td>10:20 - 10:30</td>
+                            <td>短暂休息</td>
+                        </tr>
+                        <tr>
+                            <td>10:30 - 12:00</td>
+                            <td>英语单词背诵 & 复习（因为政治和英语上午考试，上午学习利于思维惯性形成）</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 - 14:00</td>
+                            <td>午餐，午睡休息</td>
+                        </tr>
+                        <tr>
+                            <td>14:00 - 16:00</td>
+                            <td>专业基础课学习</td>
+                        </tr>
+                        <tr>
+                            <td>16:00 - 16:30</td>
+                            <td>短暂休息</td>
+                        </tr>
+                        <tr>
+                            <td>16:30 - 17:30</td>
+                            <td>毛概、专业基础课题目练习</td>
+                        </tr>
+                        <tr>
+                            <td>17:30 - 19:00</td>
+                            <td>晚餐 & 休息</td>
+                        </tr>
+                        <tr>
+                            <td>19:00 - 19:30</td>
+                            <td>英语背固定搭配</td>
+                        </tr>
+                        <tr>
+                            <td>19:30 - 20:00</td>
+                            <td>短暂休息，运动</td>
+                        </tr>
+                        <tr>
+                            <td>20:00 - 22:00</td>
+                            <td>制作思维导图，当天学习内容回顾 & 总结</td>
+                        </tr>
+                        <tr>
+                            <td>22:00 - 22:30</td>
+                            <td>轻松阅读（保持心情愉悦）</td>
+                        </tr>
+                        <tr>
+                            <td>22:30 - 23:30</td>
+                            <td>准备睡觉，放松心情</td>
+                        </tr>
+                        <tr>
+                            <td>23:30 - 7:00</td>
+                            <td>保证充足睡眠，为第二天充电</td>
+                        </tr>
+                    </table>
+                    <h4>月计划（以9月开始为例）</h4>
+                    <table >
+                        <tr>
+                            <th>阶段</th>
+                            <th>模块</th>
+                            <th>时间</th>
+                            <th>学习内容</th>
+                            <th>练习</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">第一阶段（9 - 10月）</td>
+                            <td>英语</td>
+                            <td>60天</td>
+                            <td>每天背50个3000词；语法知识结合15页思维导图过一轮；每天学一节语法</td>
+                            <td>语法练习</td>
+                        </tr>
+                        <tr>
+                            <td>政治</td>
+                            <td>60天</td>
+                            <td>倍速刷重课过两本书；梳理章节考点思维导图</td>
+                            <td>章节练习</td>
+                        </tr>
+                        <tr>
+                            <td>专业课</td>
+                            <td>30天</td>
+                            <td>刷重课倍速过课本；梳理章节考点思维导图</td>
+                            <td>章节练习</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">第二阶段（11 - 12月）</td>
+                            <td>英语</td>
+                            <td>60天</td>
+                            <td>高频词组搭配500例 + 插本核心单词1000个；边练边看阅读理解题型技巧</td>
+                            <td>阅读理解题型大全练习</td>
+                        </tr>
+                        <tr>
+                            <td>政治</td>
+                            <td>60天</td>
+                            <td>看着思维导图背诵政治大题汇总1000题 + 主观题答题模板练习；碎片时间背90条 + 300个知识点和易混淆知识点</td>
+                            <td>选择必刷练习（练习是理解的能力再现）</td>
+                        </tr>
+                        <tr>
+                            <td>专业课</td>
+                            <td>60天</td>
+                            <td>根据思维导图以及重点章节背诵往年考试重点；总结答题技巧</td>
+                            <td>练习各类题型</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">第三阶段（1 - 2月）</td>
+                            <td>英语</td>
+                            <td>60天</td>
+                            <td>背真题高频666词；先看作文，再整理作文各类模板 + 背作文</td>
+                            <td>阅读理解 + 作文练习</td>
+                        </tr>
+                        <tr>
+                            <td>政治</td>
+                            <td>60天</td>
+                            <td>冲刺大题背诵和默写；背近1年各类重大社会事件、人物热点汇总</td>
+                            <td>时政500题（重点选择题）</td>
+                        </tr>
+                        <tr>
+                            <td>专业课</td>
+                            <td>60天</td>
+                            <td>必背篇目、必背宝和考点知识小册等依次过</td>
+                            <td>汇总和主观题汇总</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">第四阶段（3月）</td>
+                            <td>英语</td>
+                            <td>20天</td>
+                            <td>生词本生词一遍过，再通过一遍3000词；阅读理解每天一套练习不停，作文也要写</td>
+                            <td>真题练习</td>
+                        </tr>
+                        <tr>
+                            <td>政治</td>
+                            <td>20天</td>
+                            <td>背诵重点大题100道；思维导图</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>专业课</td>
+                            <td>20天</td>
+                            <td>思维导图；重点章节背诵</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </section>
+            </article>
+        </div>
+    </div>
+
+        <!-- Footer -->
+        <footer id="footer" class="container">
+            <div class="row">
+                <div class="col-12">
+                    <section>
+                        <h2>联系方式</h2>
+                        <p>如有任何问题或建议，请通过以下方式联系我们。</p>
+                        <!-- 可以添加邮箱、电话等联系方式 -->
+                    </section>
+                </div>
+            </div>
+        </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var linkMotivation = document.getElementById('link-motivation');
+            var linkMindset = document.getElementById('link-mindset');
+            var linkPlan = document.getElementById('link-plan');
+            var contentSections = document.querySelectorAll('article section.content-hidden');
+
+            function showContent(index) {
+                contentSections.forEach(function (section, i) {
+                    section.classList.remove('active');
+                    section.style.display = (i === index)? 'block' : 'none';
+                    if (i === index) {
+                        section.classList.add('active');
+                    }
+                });
+            }
+
+
+            linkMotivation.addEventListener('click', function (event) {
+                event.preventDefault();
+                showContent(0);
+            });
+
+            linkMindset.addEventListener('click', function (event) {
+                event.preventDefault();
+                showContent(1);
+            });
+
+            linkPlan.addEventListener('click', function (event) {
+                event.preventDefault();
+                showContent(2);
+            });
+        });
+    </script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
