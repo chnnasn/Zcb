@@ -1,0 +1,36 @@
+{
+    "计算机学院": [
+        {
+            "name": "张明",
+            "originalMajor": "计算机应用技术",
+            "targetSchool": "华南理工大学",
+            "targetMajor": "计算机科学与技术",
+            "year": "2023"
+        },
+        {
+            "name": "李华",
+            "originalMajor": "软件技术",
+            "targetSchool": "广东工业大学",
+            "targetMajor": "软件工程",
+            "year": "2023"
+        }
+    ],
+    "机械工程学院": [
+        {
+            "name": "王强",
+            "originalMajor": "机械制造与自动化",
+            "targetSchool": "华南理工大学",
+            "targetMajor": "机械工程",
+            "year": "2023"
+        }
+    ],
+    "电气工程学院": [
+        {
+            "name": "陈亮",
+            "originalMajor": "电气自动化技术",
+            "targetSchool": "广东工业大学",
+            "targetMajor": "电气工程及其自动化",
+            "year": "2023"
+        }
+    ]
+} 
