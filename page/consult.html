@@ -109,7 +109,7 @@
                         <li><a href="consult.html">插本咨询</a></li>
                         <li><a href="message.html">讨论专区</a></li>
                     </ul>
-              </nav>
+                </nav>
             </div>
         </header>
 
@@ -117,75 +117,9 @@
             <article id="content">
                 <header>
                     <h2>专插本成功案例</h2>
-                    <p>以下是各学院专插本考试成功上岸的优秀学长学姐，点击可查看详细信息</p>
+                    <p style="color:black; font-weight: bold;">以下是各学院专插本考试成功上岸的优秀学长学姐，点击可查看详细信息</p>
                 </header>
-
-                <div class="college-section">
-                    <div class="college-header" onclick="toggleCollege(this)">
-                        <h3>计算机学院</h3>
-                        <span class="toggle-icon">▼</span>
-                    </div>
-                    <div class="college-content">
-                        <div class="student-card" onclick="showStudentDetail(this)">
-                            <div class="student-avatar"></div>
-                            <div class="student-info">
-                                <div class="student-name">张明</div>
-                                <div class="student-detail">原专业：计算机应用技术</div>
-                                <div class="student-detail">考入院校：华南理工大学</div>
-                                <div class="student-detail">考入专业：计算机科学与技术</div>
-                                <div class="success-tag">2023年上岸</div>
-                            </div>
-                        </div>
-                        <div class="student-card" onclick="showStudentDetail(this)">
-                            <div class="student-avatar"></div>
-                            <div class="student-info">
-                                <div class="student-name">李华</div>
-                                <div class="student-detail">原专业：软件技术</div>
-                                <div class="student-detail">考入院校：广东工业大学</div>
-                                <div class="student-detail">考入专业：软件工程</div>
-                                <div class="success-tag">2023年上岸</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="college-section">
-                    <div class="college-header" onclick="toggleCollege(this)">
-                        <h3>机械工程学院</h3>
-                        <span class="toggle-icon">▼</span>
-                    </div>
-                    <div class="college-content">
-                        <div class="student-card" onclick="showStudentDetail(this)">
-                            <div class="student-avatar"></div>
-                            <div class="student-info">
-                                <div class="student-name">王强</div>
-                                <div class="student-detail">原专业：机械制造与自动化</div>
-                                <div class="student-detail">考入院校：华南理工大学</div>
-                                <div class="student-detail">考入专业：机械工程</div>
-                                <div class="success-tag">2023年上岸</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="college-section">
-                    <div class="college-header" onclick="toggleCollege(this)">
-                        <h3>电气工程学院</h3>
-                        <span class="toggle-icon">▼</span>
-                    </div>
-                    <div class="college-content">
-                        <div class="student-card" onclick="showStudentDetail(this)">
-                            <div class="student-avatar"></div>
-                            <div class="student-info">
-                                <div class="student-name">陈亮</div>
-                                <div class="student-detail">原专业：电气自动化技术</div>
-                                <div class="student-detail">考入院校：广东工业大学</div>
-                                <div class="student-detail">考入专业：电气工程及其自动化</div>
-                                <div class="success-tag">2023年上岸</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- 动态内容将插入到这里 -->
             </article>
         </div>
 
@@ -201,48 +135,20 @@
         </footer>
     </div>
 
+    <!-- 外部数据文件 -->
+    <script src="../data/seniors.js"></script>
+    <!-- 外部脚本文件 -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
     <script>
-        // 直接嵌入学长学姐数据
-        const seniors = {
-            "计算机学院": [
-                {
-                    "name": "张明",
-                    "originalMajor": "计算机应用技术",
-                    "targetSchool": "华南理工大学",
-                    "targetMajor": "计算机科学与技术",
-                    "year": "2023"
-                },
-                {
-                    "name": "李华",
-                    "originalMajor": "软件技术",
-                    "targetSchool": "广东工业大学",
-                    "targetMajor": "软件工程",
-                    "year": "2023"
-                }
-            ],
-            "机械工程学院": [
-                {
-                    "name": "王强",
-                    "originalMajor": "机械制造与自动化",
-                    "targetSchool": "华南理工大学",
-                    "targetMajor": "机械工程",
-                    "year": "2023"
-                }
-            ],
-            "电气工程学院": [
-                {
-                    "name": "陈亮",
-                    "originalMajor": "电气自动化技术",
-                    "targetSchool": "广东工业大学",
-                    "targetMajor": "电气工程及其自动化",
-                    "year": "2023"
-                }
-            ]
-        };
-
+        // 动态加载数据的函数
         function loadSeniors() {
             try {
-                // 清空现有内容
+                // 获取内容区域
                 const content = document.querySelector('#content');
                 const header = content.querySelector('header');
                 content.innerHTML = '';
@@ -294,6 +200,7 @@
             }
         }
 
+        // 切换学院内容显示/隐藏
         function toggleCollege(header) {
             const content = header.nextElementSibling;
             const icon = header.querySelector('.toggle-icon');
@@ -301,12 +208,13 @@
             icon.textContent = content.style.display === 'block' ? '▼' : '▶';
         }
 
+        // 显示学生详细信息
         function showStudentDetail(card) {
             // 这里可以添加点击学生卡片后的详细信息展示逻辑
-            alert('即将显示该学长详细信息和联系方式');
+            alert('请联系管理员');
         }
 
-        // 页面加载完成后执行
+        // 页面加载完成后调用
         document.addEventListener('DOMContentLoaded', loadSeniors);
     </script>
 </body>

@@ -172,9 +172,9 @@
                     <ul>
                         <li>改变思维模式：
                             <ul>
-                                <li>积极自我对话：每天对自己说一些积极的话语，比如“我可以的”“今天会是美好的一天”“我有能力解决问题”等。当遇到困难时，用正面的语言鼓励自己，而不是陷入自我否定。</li>
+                                <li>积极自我对话：每天对自己说一些积极的话语，比如"我可以的""今天会是美好的一天""我有能力解决问题"等。当遇到困难时，用正面的语言鼓励自己，而不是陷入自我否定。</li>
                                 <li>关注积极面：学会从生活中的小事中寻找积极的方面。比如，虽然今天下雨了，但可以享受清新的空气；虽然工作很忙碌，但也意味着自己有价值。把注意力从问题和困难转移到积极的成果和经验上。</li>
-                                <li>转换视角：当面临挑战时，尝试从不同的角度去看待问题。比如，把一次失败看作是学习的机会，而不是打击。从挫折中寻找成长的空间，培养“每一次经历都是一种收获”的思维方式。</li>
+                                <li>转换视角：当面临挑战时，尝试从不同的角度去看待问题。比如，把一次失败看作是学习的机会，而不是打击。从挫折中寻找成长的空间，培养"每一次经历都是一种收获"的思维方式。</li>
                             </ul>
                         </li>
                         <li>培养记录的小习惯：
@@ -402,39 +402,41 @@
             var linkPlan = document.getElementById('link-plan');
             var contentSections = document.querySelectorAll('article section.content-hidden');
 
-            function showContent(index) {
+            function toggleContent(index) {
                 contentSections.forEach(function (section, i) {
-                    section.classList.remove('active');
-                    section.style.display = (i === index)? 'block' : 'none';
                     if (i === index) {
-                        section.classList.add('active');
+                        section.classList.toggle('active'); // 切换active类
+                        section.style.display = section.classList.contains('active') ? 'block' : 'none'; // 根据active类显示或隐藏
+                    } else {
+                        section.classList.remove('active');
+                        section.style.display = 'none'; // 其他内容隐藏
                     }
                 });
             }
 
-
             linkMotivation.addEventListener('click', function (event) {
                 event.preventDefault();
-                showContent(0);
+                toggleContent(0);
             });
 
             linkMindset.addEventListener('click', function (event) {
                 event.preventDefault();
-                showContent(1);
+                toggleContent(1);
             });
 
             linkPlan.addEventListener('click', function (event) {
                 event.preventDefault();
-                showContent(2);
+                toggleContent(2);
             });
         });
     </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
 </body>
 
 </html>
