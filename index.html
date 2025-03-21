@@ -2,8 +2,54 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>专插本备考指南</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <!-- 添加轮播图样式 -->
+    <style>
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-item.active {
+            opacity: 1;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .carousel-prev {
+            left: 10px;
+        }
+        .carousel-next {
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
     <div id="page-wrapper">
@@ -20,7 +66,7 @@
                         <li><li>
                         <li><li>
                         <li><li>
-                        <li><a href="page/consult.html">心理咨询</a></li>
+                        <li><a href="page/consult.html">插本咨询</a></li>
                         <li><a href="page/message.html">讨论专区</a></li>
                     </ul>
                 </nav>
@@ -31,8 +77,25 @@
         <section id="hero" class="container">
             <header>
                 <h2>欢迎来到专插本备考指南</h2>
-                <p>这里是你获取专插本备考信息的一站式平台。</p>
+                <p>这里是你获取专插本备考信息的一站式平台</p>
             </header>
+            
+            <!-- 添加轮播图 -->
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/images/slide1.png" alt="备考图片1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/images/slide2.png" alt="备考图片2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/images/slide3.png" alt="备考图片3">
+                    </div>
+                </div>
+                <div class="carousel-control carousel-prev">&#10094;</div>
+                <div class="carousel-control carousel-next">&#10095;</div>
+            </div>
         </section>
 
         <!-- Main Content -->
@@ -67,5 +130,36 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+    
+    <!-- 添加轮播图脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.carousel-item');
+            const prev = document.querySelector('.carousel-prev');
+            const next = document.querySelector('.carousel-next');
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                items.forEach(item => item.classList.remove('active'));
+                items[index].classList.add('active');
+            }
+
+            prev.addEventListener('click', () => {
+                currentIndex = currentIndex > 0 ? currentIndex - 1 : items.length - 1;
+                showSlide(currentIndex);
+            });
+
+            next.addEventListener('click', () => {
+                currentIndex = currentIndex < items.length - 1 ? currentIndex + 1 : 0;
+                showSlide(currentIndex);
+            });
+
+            // 自动轮播
+            setInterval(() => {
+                currentIndex = currentIndex < items.length - 1 ? currentIndex + 1 : 0;
+                showSlide(currentIndex);
+            }, 5000);
+        });
+    </script>
 </body>
 </html>

@@ -3,27 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>留言板</title>
+    <title>插本咨询</title>
     <link rel="stylesheet" href="../assets/css/main.css">
     <style>
-        /* 留言板样式 */
-        .message-board {
-            margin-top: 20px;
+        .college-section {
+            margin: 20px 0;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .message-form {
-            margin-bottom: 20px;
+        .college-header {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
         }
 
-        /* .message-list {
-            margin-top: 20px;
-        } */
+        .college-header:hover {
+            background-color: #e9ecef;
+        }
 
-        .message-item {
-            background-color: #f8f8f8;
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 10px;
+        .college-header h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .college-content {
+            display: none;
+            padding: 20px;
+        }
+
+        .college-content.active {
+            display: block;
+        }
+
+        .student-card {
+            display: flex;
+            align-items: start;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .student-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .student-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+            background-color: #e9ecef;
+        }
+
+        .student-info {
+            flex: 1;
+        }
+
+        .student-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .student-detail {
+            color: #666;
+            margin: 3px 0;
+        }
+
+        .success-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -41,7 +106,7 @@
                         <li><li>
                         <li><li>
                         <li><li>
-                        <li><a href="consult.html">心理咨询</a></li>
+                        <li><a href="consult.html">插本咨询</a></li>
                         <li><a href="message.html">讨论专区</a></li>
                     </ul>
                 </nav>
@@ -51,27 +116,10 @@
         <div class="container" id="main">
             <article id="content">
                 <header>
-                    <h2>留言板</h2>
+                    <h2>专插本成功案例</h2>
+                    <p style="color:black; font-weight: bold;">以下是各学院专插本考试成功上岸的优秀学长学姐，点击可查看详细信息</p>
                 </header>
-
-                <div class="message-board">
-                    <form class="message-form">
-                        <label for="name">姓名:</label>
-                        <input type="text" id="name" name="name" required>
-                        <label for="message">留言:</label>
-                        <textarea id="message" name="message" required></textarea>
-                        <button type="submit">提交留言</button>
-                    </form>
-
-                    <!-- <div class="message-list">
-                        <div class="message-item">
-                            <p><strong>张三:</strong> 这个备考指南非常有用，谢谢！</p>
-                        </div>
-                        <div class="message-item">
-                            <p><strong>李四:</strong> 我觉得可以增加一些实战经验分享。</p>
-                        </div>
-                    </div> -->
-                </div>
+                <!-- 动态内容将插入到这里 -->
             </article>
         </div>
 
@@ -86,5 +134,88 @@
             </div>
         </footer>
     </div>
+
+    <!-- 外部数据文件 -->
+    <script src="../data/seniors.js"></script>
+    <!-- 外部脚本文件 -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // 动态加载数据的函数
+        function loadSeniors() {
+            try {
+                // 获取内容区域
+                const content = document.querySelector('#content');
+                const header = content.querySelector('header');
+                content.innerHTML = '';
+                content.appendChild(header);
+                
+                // 按学院分组渲染数据
+                for (const college in seniors) {
+                    const collegeSection = document.createElement('div');
+                    collegeSection.className = 'college-section';
+                    
+                    // 创建学院标题
+                    const collegeHeader = document.createElement('div');
+                    collegeHeader.className = 'college-header';
+                    collegeHeader.onclick = function() { toggleCollege(this); };
+                    collegeHeader.innerHTML = `
+                        <h3>${college}</h3>
+                        <span class="toggle-icon">▶</span>
+                    `;
+                    
+                    // 创建学院内容区
+                    const collegeContent = document.createElement('div');
+                    collegeContent.className = 'college-content';
+                    
+                    // 添加该学院的所有学长学姐
+                    seniors[college].forEach(senior => {
+                        const studentCard = document.createElement('div');
+                        studentCard.className = 'student-card';
+                        studentCard.onclick = function() { showStudentDetail(this); };
+                        studentCard.innerHTML = `
+                            <div class="student-avatar"></div>
+                            <div class="student-info">
+                                <div class="student-name">${senior.name}</div>
+                                <div class="student-detail">原专业：${senior.originalMajor}</div>
+                                <div class="student-detail">考入院校：${senior.targetSchool}</div>
+                                <div class="student-detail">考入专业：${senior.targetMajor}</div>
+                                <div class="success-tag">${senior.year}年上岸</div>
+                            </div>
+                        `;
+                        collegeContent.appendChild(studentCard);
+                    });
+                    
+                    collegeSection.appendChild(collegeHeader);
+                    collegeSection.appendChild(collegeContent);
+                    content.appendChild(collegeSection);
+                }
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                alert('加载数据失败，请稍后重试');
+            }
+        }
+
+        // 切换学院内容显示/隐藏
+        function toggleCollege(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.toggle-icon');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            icon.textContent = content.style.display === 'block' ? '▼' : '▶';
+        }
+
+        // 显示学生详细信息
+        function showStudentDetail(card) {
+            // 这里可以添加点击学生卡片后的详细信息展示逻辑
+            alert('请联系管理员');
+        }
+
+        // 页面加载完成后调用
+        document.addEventListener('DOMContentLoaded', loadSeniors);
+    </script>
 </body>
 </html>
